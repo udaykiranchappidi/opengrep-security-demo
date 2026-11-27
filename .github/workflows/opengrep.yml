@@ -1,0 +1,26 @@
+name: OpenGrep Security Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get project code
+        uses: actions/checkout@v4
+
+      - name: Install OpenGrep
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/opengrep/opengrep/main/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Run security scan
+        run: |
+          opengrep scan \
+            --config rules/security-rules.yaml \
+            --error \
+            .
