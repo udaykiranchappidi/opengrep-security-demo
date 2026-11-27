@@ -16,7 +16,7 @@ jobs:
       - name: Install OpenGrep
         run: |
           curl -fsSL https://raw.githubusercontent.com/opengrep/opengrep/main/install.sh | bash
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "$HOME/.opengrep/cli/latest" >> "$GITHUB_PATH"
 
       - name: Run security scan
         run: |
