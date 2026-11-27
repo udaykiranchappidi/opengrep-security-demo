@@ -1,0 +1,7 @@
+rules:
+  - id: hardcoded-admin-password
+    message: Do not store admin passwords directly in source code.
+    severity: ERROR
+    languages:
+      - javascript
+    pattern: const expectedPassword = "admin123";
