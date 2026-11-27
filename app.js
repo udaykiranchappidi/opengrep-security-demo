@@ -1,6 +1,6 @@
-// Safe login example
+// Login example with a security mistake
 function login(username, password) {
-    const expectedPassword = process.env.ADMIN_PASSWORD;
+    const expectedPassword = "admin123";
 
     if (username === "admin" && password === expectedPassword) {
         return "Login successful";
@@ -9,4 +9,4 @@ function login(username, password) {
     return "Invalid username or password";
 }
 
-console.log(login("admin", "test123"));
+console.log(login("admin", "admin123"));
